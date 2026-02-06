@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student_Table</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+
+  <h1 class="text-center text-3xl m-10">STUDENT FORM</h1>
+
+  <nav class="flex justify-center mb-20">
+    <table class="border border-gray-500">
+      <tr>
+        <td class="p-4">Name</td>
+        <td class="p-4">
+          <input id="u_name" type="text" placeholder="Enter your Name" class="border p-2">
+        </td>
+      </tr>
+
+      <tr>
+        <td class="p-4">Age</td>
+        <td class="p-4">
+          <input id="u_age" type="text" placeholder="Enter your Age" class="border p-2">
+        </td>
+      </tr>
+
+      <tr>
+        <td class="p-4">Gender</td>
+        <td class="p-4">
+            <label class="mr-3">
+          <input id="u_male" type="radio" name="gender" value="Male"> Male
+          </label>
+           <label>
+          <input id="u_female" type="radio" name="gender" value="Female"> Female
+          </label>
+        </td>
+      </tr>
+      <tr >
+        <td class="p-4"> Course</td>
+        <td class="p-4">
+            <select name="Course" id="u_course" class="p-2">
+                <option value="javascript">javascript</option>
+                <option value="java">Java</option>
+                <option value="python">Python</option>
+                <option value="c++">C++</option>
+            </select>
+        </td>
+      </tr>
+      <tr>
+        <td class="p-4">E-mail</td>
+        <td class="p-4"><input type="email" placeholder="Enter your Mail id" class="border p-2" id="u_mail"></td>
+      </tr>
+      <tr>
+        <td colspan="2" class="bg-green-500 text-center cursor-pointer p-2 hover:bg-green-900">
+          <input type="button" value="save" id="u_save">
+        </td>
+      </tr>
+      
+
+    </table>
+  </nav>
+  <div  class="border-collapse border border-gray-500 mx-auto bg-white">
+    <table class="border border-gray-500 w-full table-auto">
+      <tr>
+        <th class="border p-2">NAME</th>
+        <th class="border p-2">AGE</th>
+        <th class="border p-2">COURSE</th>
+        <th class="border p-2">GENDER</th>
+        <th class="border p-2">EMAIL</th>
+        <th class="border p-2">ACTION</th>
+      </tr>
+      <tbody id="new_row">
+
+      </tbody>
+    </table>
+    
+  </div>
+
+</body>
+<script>
+  var u_name=document.getElementById("u_name")
+  var u_age=document.getElementById("u_age")
+  
+  var u_course=document.getElementById("u_course")
+  var u_mail=document.getElementById("u_mail")
+  var u_save=document.getElementById("u_save")
+  u_save.addEventListener("click",function(){
+    let name=u_name.value
+    let age=u_age.value
+    let course=u_course.value
+    let u_gender=document.querySelector('input[name="gender"]:checked').value
+    let mail=u_mail.value
+    var row=document.createElement("tr")
+    if(name=="" || age=="" || course=="" || u_gender=="" || mail==""){
+      alert("please fill the form properly")
+      return
+    }
+    else{
+      alert("Form Submitted Successfully")
+    }
+    row.innerHTML=`
+    <td class="border p-2">${name}</td>
+    <td class="border p-2">${age}</td>
+    <td class="border p-2">${course}</td>
+    <td class="border p-2">${u_gender}</td>
+    <td class="border p-2">${mail}</td>
+    <td class="border p-2"><button onclick="this.parentElement.parentElement.remove()" class="bg-red-500 border border-black p-2">Delete</button></td>
+    `
+    document.getElementById("new_row").append(row)
+    u_name.value=""
+    u_age.value=""
+    u_mail.value=""
+    document.querySelector('input[name="gender"]:checked').checked=false;
+    course.value=""
+});
+
+
+
+</script>
+
+</html>
