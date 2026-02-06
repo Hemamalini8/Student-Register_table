@@ -7,7 +7,7 @@ Student-register_table is a simple web application that allows users to register
 ## 🌐 Live Website
 
 👉 Project Link:  
-https://your-website-link-here  
+https://hemamalini8.github.io/Student-Register_table/ 
 
 (Replace this with your real website link)
 
@@ -31,6 +31,3 @@ https://your-website-link-here
 - Responsive design
 
 ---
-
-## 📂 Project Structure
-
